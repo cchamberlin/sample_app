@@ -1,3 +1,7 @@
+# TODO - Link to new on front page doesn't work.
+# TODO - Gravatar user isn't set up, see Chapter 7.1.4.
+
+
 Rails.application.routes.draw do
 
   get 'users/new'
@@ -9,6 +13,8 @@ Rails.application.routes.draw do
   get 'about' => 'static_pages#about'
   get 'contact' => 'static_pages#contact'
   get 'signup' => 'users#new'
+  
+  resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
