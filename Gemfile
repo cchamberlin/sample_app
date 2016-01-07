@@ -58,6 +58,7 @@ group :production do
   # Postgres for Heroku
   gem 'pg'
   gem 'rails_12factor'
+  gem 'puma'
 end
 
 
