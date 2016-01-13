@@ -1,5 +1,6 @@
 # TODO - Gravatar user isn't set up, see Chapter 7.1.4.
-
+# TODO - Gravatar link on user edit page is crowded. Why?
+# TODO - Add e-mail to profile page?
 
 Rails.application.routes.draw do
 
