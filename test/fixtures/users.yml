@@ -5,3 +5,8 @@ self:
   email: craig.chamberlin@gmail.com
   password_digest: <%= User.digest('s3cr3t') %>
   
+archer:
+  name: Sterling Archer
+  email: duchess@britain.gov
+  password_digest: <%= User.digest('pa55w0rd') %>
+  
