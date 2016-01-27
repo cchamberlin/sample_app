@@ -1,6 +1,7 @@
 # TODO - Gravatar user isn't set up, see Chapter 7.1.4.
 # TODO - Gravatar link on user edit page is crowded. Why?
 # TODO - Add e-mail to profile page?
+# TODO - before_save { self.email = email.downcase } in user.rb doesn't match book?
 
 Rails.application.routes.draw do
 
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
   
   resources :users
+  resources :account_activations, only: [:edit]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
