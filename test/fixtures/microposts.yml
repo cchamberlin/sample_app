@@ -3,19 +3,26 @@
 cat:
   content: "Picture of cat!"
   created_at: <%= 3.years.ago %>
-  user_id: 1
+  user: self
 
 food:
   content: "I ate a thing!"
   created_at: <%= 2.hours.ago %>
-  user_id: 1
-
+  user: self
+  
 beer:
   content: "I drank a beer!"
   created_at: <%= 10.minutes.ago %>
-  user_id: 1
+  user: self
   
 bear:
   content: "I was eaten by a bear!"
   created_at: <%= Time.zone.now %>
-  user_id: 1
+  user: self
+  
+<% 30.times do |n| %>
+micropost_<%= n %>:
+  content: <%= Faker::Lorem.sentence(5) %>
+  created_at: <%= 42.days.ago %>
+  user: self
+<% end %>
