@@ -2,6 +2,13 @@
 # TODO - Gravatar link on user edit page is crowded. Why?
 # TODO - Add e-mail to profile page?
 # TODO - before_save { self.email = email.downcase } in user.rb doesn't match book?
+# ???? - How does Rails MVC work? How am I even getting a home page?
+#### static_pages#home finds the static_pages_controller file, and runs the home method to get models.
+#### Then this information is passed by default to the home.html.erb view.
+#### In cases where there is no #method .erb (such as sessions#destroy), the controller has to redirect to an appropriate view.
+# ???? - How do helper files work?
+# ???? - Using gravatar_for in console?
+# ???? - Using routes in console?
 
 Rails.application.routes.draw do
 
@@ -22,10 +29,15 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
   
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
   resources :microposts, only: [:create, :destroy]
+  resources :relationships, only: [:create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
