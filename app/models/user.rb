@@ -75,7 +75,8 @@ class User < ActiveRecord::Base
   
   # Defines a proto-feed
   def feed
-    Micropost.where("user_id = ?", id)
+    users_subscribed_to = "SELECT followed_id FROM relationships WHERE follower_id = :user_id"
+    Micropost.where("user_id IN (#{users_subscribed_to}) OR user_id = :user_id", following_ids: following_ids, user_id: id)
   end
   
   # Follows a user
