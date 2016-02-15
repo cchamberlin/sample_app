@@ -8,7 +8,7 @@
 #### In cases where there is no #method .erb (such as sessions#destroy), the controller has to redirect to an appropriate view.
 # ???? - How do helper files work?
 # ???? - Using gravatar_for in console?
-# ???? - Using routes in console?
+# ???? - Using link_to in console?
 
 Rails.application.routes.draw do
 
